@@ -10,17 +10,6 @@ class Solution:
 
         if not root:
             return None
-
-        left = root.left
-        right = root.right
-
-        root.right = left
-        root.left = right
-
-
-        self.invertTree(left)
-        self.invertTree(right)
-
-        return root
-
+            
+        return TreeNode(root.val, self.invertTree(root.right), self.invertTree(root.left))
         
